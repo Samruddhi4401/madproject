@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AGRONURSERY - Login</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#4CAF50',secondary:'#8BC34A'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Poppins', sans-serif;
+background-color: #f9fafb;
+}
+.input-field {
+width: 100%;
+padding: 0.75rem 1rem;
+border: 1px solid #e5e7eb;
+border-radius: 8px;
+outline: none;
+transition: all 0.3s;
+}
+.input-field:focus {
+border-color: #4CAF50;
+box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+.login-section {
+transition: all 0.3s ease;
+}
+.login-section:hover {
+transform: translateY(-2px);
+}
+</style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
+<div class="w-full max-w-4xl bg-white rounded-lg shadow-lg overflow-hidden">
+<!-- Brand Header -->
+<div class="w-full bg-primary py-6 px-8 text-center">
+<h1 class="text-4xl font-semibold text-white">AGRONURSERY</h1>
+</div>
+<!-- Login Logo Section -->
+<div class="flex justify-center -mt-10">
+<div class="w-20 h-20 rounded-full bg-white shadow-md flex items-center justify-center">
+<div class="w-12 h-12 flex items-center justify-center text-primary">
+<i class="ri-plant-line ri-2x"></i>
+</div>
+</div>
+</div>
+<div class="p-8">
+<h2 class="text-2xl font-semibold text-center text-gray-800 mb-8">Welcome Back</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Farmer Section -->
+<div class="login-section bg-white p-6 rounded-lg border border-gray-100 shadow-sm cursor-pointer" onclick="selectLoginType('farmer')">
+<div class="flex items-center mb-6">
+<div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-3">
+<i class="ri-user-line text-primary"></i>
+</div>
+<h3 class="text-xl font-medium text-gray-800">Farmer Login</h3>
+</div>
+<form id="farmer-form" class="hidden">
+<div class="mb-4">
+<label for="farmer-name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+<div class="relative">
+<input type="text" id="farmer-name" class="input-field pl-10" placeholder="Enter your name">
+<div class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400">
+<i class="ri-user-line"></i>
+</div>
+</div>
+</div>
+<div class="mb-6">
+<label for="farmer-phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+<div class="relative">
+<input type="number" id="farmer-phone" class="input-field pl-10" placeholder="Enter phone number">
+<div class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400">
+<i class="ri-phone-line"></i>
+</div>
+</div>
+</div>
+<button type="submit" class="w-full bg-primary text-white py-3 px-4 rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap flex items-center justify-center">
+<i class="ri-login-box-line mr-2"></i>
+Login as Farmer
+</button>
+</form>
+</div>
+<!-- Nursery Owner Section -->
+<div class="login-section bg-white p-6 rounded-lg border border-gray-100 shadow-sm cursor-pointer" onclick="selectLoginType('nursery')">
+<div class="flex items-center mb-6">
+<div class="w-10 h-10 flex items-center justify-center bg-secondary/10 rounded-full mr-3">
+<i class="ri-store-line text-secondary"></i>
+</div>
+<h3 class="text-xl font-medium text-gray-800">Nursery Owner Login</h3>
+</div>
+<form id="nursery-form" class="hidden">
+<div class="mb-4">
+<label for="nursery-name" class="block text-sm font-medium text-gray-700 mb-2">Nursery Name</label>
+<div class="relative">
+<input type="text" id="nursery-name" class="input-field pl-10" placeholder="Enter nursery name">
+<div class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400">
+<i class="ri-store-2-line"></i>
+</div>
+</div>
+</div>
+<div class="mb-6">
+<label for="nursery-phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+<div class="relative">
+<input type="number" id="nursery-phone" class="input-field pl-10" placeholder="Enter phone number">
+<div class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400">
+<i class="ri-phone-line"></i>
+</div>
+</div>
+</div>
+<button type="submit" class="w-full bg-secondary text-white py-3 px-4 rounded-button font-medium hover:bg-secondary/90 transition-colors whitespace-nowrap flex items-center justify-center">
+<i class="ri-login-box-line mr-2"></i>
+Login as Nursery Owner
+</button>
+</form>
+</div>
+</div>
+<div class="mt-8 text-center text-sm text-gray-500">
+<p>Need help? <a href="#" class="text-primary font-medium hover:underline">Contact Support</a></p>
+</div>
+</div>
+<div class="bg-gray-50 py-4 px-8 text-center border-t border-gray-100">
+<p class="text-sm text-gray-600">© 2025 AGRONURSERY. All rights reserved.</p>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const inputs = document.querySelectorAll('.input-field');
+inputs.forEach(input => {
+input.addEventListener('focus', function() {
+this.parentElement.classList.add('ring-2', 'ring-primary/20');
+});
+input.addEventListener('blur', function() {
+this.parentElement.classList.remove('ring-2', 'ring-primary/20');
+});
+});
+});
+function selectLoginType(type) {
+const farmerForm = document.getElementById('farmer-form');
+const nurseryForm = document.getElementById('nursery-form');
+const farmerSection = farmerForm.closest('.login-section');
+const nurserySection = nurseryForm.closest('.login-section');
+if (type === 'farmer') {
+farmerForm.classList.remove('hidden');
+nurseryForm.classList.add('hidden');
+farmerSection.classList.add('border-primary');
+nurserySection.classList.remove('border-secondary');
+} else {
+nurseryForm.classList.remove('hidden');
+farmerForm.classList.add('hidden');
+nurserySection.classList.add('border-secondary');
+farmerSection.classList.remove('border-primary');
+}
+}
+</script>
+</body>
+</html>
