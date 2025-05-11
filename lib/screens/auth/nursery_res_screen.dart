@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class NurseryForm extends StatefulWidget {
-  const NurseryForm({super.key});
+class NurseryResScreen extends StatefulWidget {
+  const NurseryResScreen({super.key});
 
   @override
-  State<NurseryForm> createState() => _NurseryFormState();
+  State<NurseryResScreen> createState() => _NurseryFormState();
 }
 
-class _NurseryFormState extends State<NurseryForm> {
+class _NurseryFormState extends State<NurseryResScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController ownerController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
