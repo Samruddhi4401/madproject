@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'screens/auth/farmer_login_screen.dart';
 import 'screens/auth/farmer_res_screen.dart';
 import 'screens/auth/login.dart';
@@ -6,7 +7,9 @@ import 'screens/auth/nursery_login_screen.dart';
 import 'screens/auth/nursery_res_screen.dart';
 import 'screens/auth/signup.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -29,11 +32,9 @@ class MyApp extends StatelessWidget {
         "/farmer_register": (context) => const FarmerResScreen(),
         '/nursery_login': (context) => const NurseryLoginScreen(),
         '/nursery_register': (context) => const NurseryResScreen(),
-        '/login':(context) => const LoginScreen(),
-        '/signup':(context) => const SignUpScreen(),
+        '/login': (context) => const LoginScreen(),
+        '/signup': (context) => const SignUpScreen(),
       },
     );
   }
 }
-
-
