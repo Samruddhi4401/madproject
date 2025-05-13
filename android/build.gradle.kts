@@ -1,3 +1,16 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        // Add the Maven coordinates and latest version of the plugin
+        classpath("com.google.gms:google-services:4.4.2")
+        classpath("com.android.tools.build:gradle:8.0.0")
+    }
+}
+
 allprojects {
     repositories {
         google()
@@ -12,6 +25,7 @@ subprojects {
     val newSubprojectBuildDir: Directory = newBuildDir.dir(project.name)
     project.layout.buildDirectory.value(newSubprojectBuildDir)
 }
+
 subprojects {
     project.evaluationDependsOn(":app")
 }
@@ -19,9 +33,3 @@ subprojects {
 tasks.register<Delete>("clean") {
     delete(rootProject.layout.buildDirectory)
 }
-dependencies {
-      ...
-
-      // Add the Maven coordinates and latest version of the plugin
-      classpath ("com.google.gms:google-services: 4.4.2")
-    }
